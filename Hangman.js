@@ -7,13 +7,13 @@ function gamePlay() {
   let x = Math.floor((Math.random() * listLength) + 1);
   word = list[x];
   let wordLength = word.length;
-  let line ="__";
-  wordToComplete[0]  = word[0];
+  let line = "__";
+  wordToComplete[0] = word[0];
   for(let i = 1; i < wordLength - 1; ++i) {
-    wordToComplete[i]  = line;
+    wordToComplete[i] = line;
   }
-  wordToComplete[wordLength - 1]  = word[wordLength - 1];
-  document.getElementById("wordToComplete").innerHTML  = wordToComplete.join(' '); 
+  wordToComplete[wordLength - 1] = word[wordLength - 1];
+  document.getElementById("wordToComplete").innerHTML = wordToComplete.join(' '); 
   document.getElementById("btn").disabled = true;
 }
 
@@ -23,7 +23,7 @@ const listPressedLetters = [];
 document.getElementById("life").innerHTML = life;
 
 function whichButton(event) {
-  let letterPressed  = event.key;
+  let letterPressed = event.key;
   let found = listPressedLetters.includes(letterPressed);
   if (found == false) {
     listPressedLetters.push(letterPressed);
@@ -33,13 +33,13 @@ function whichButton(event) {
       if (letterPressed == word[i]) {
         ++spacesFilled;
         wordToComplete[i] = letterPressed ;
-        document.getElementById("wordToComplete").innerHTML  = wordToComplete.join(' ');
+        document.getElementById("wordToComplete").innerHTML = wordToComplete.join(' ');
       } else {
         ++letterNotFound;
       }
     }
     let space = " ";
-    document.getElementById("lettersEntered").innerHTML += letterPressed  + space;
+    document.getElementById("lettersEntered").innerHTML += letterPressed + space;
     if (letterNotFound == numberSpaces) {
       --life;
     }
