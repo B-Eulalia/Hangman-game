@@ -25,12 +25,12 @@ document.getElementById("life").innerHTML = life;
 function whichButton(event) {
   let letterPressed = event.key;
   let found = listPressedLetters.includes(letterPressed);
-  if (found == false) {
+  if (found === false) {
     listPressedLetters.push(letterPressed);
     let letterNotFound = 0;
     let numberSpaces = word.length - 2;
     for (let i = 1; i < word.length - 1; ++i) {
-      if (letterPressed == word[i]) {
+      if (letterPressed === word[i]) {
         ++spacesFilled;
         wordToComplete[i] = letterPressed ;
         document.getElementById("wordToComplete").innerHTML = wordToComplete.join(' ');
@@ -40,17 +40,17 @@ function whichButton(event) {
     }
     let space = " ";
     document.getElementById("lettersEntered").innerHTML += letterPressed + space;
-    if (letterNotFound == numberSpaces) {
+    if (letterNotFound === numberSpaces) {
       --life;
     }
     document.getElementById("life").innerHTML = life;
-    if (life == 0) {
+    if (life === 0) {
       document.getElementById("displayResult").innerHTML = "Game Over";
       let h1 = document.getElementById("displayResult");
       h1.style.color = "red";
       document.getElementById("lettersEntered").remove();
     }
-    if (spacesFilled == numberSpaces) {
+    if (spacesFilled === numberSpaces) {
       document.getElementById("displayResult").innerHTML = "Game won"; 
       let h1 = document.getElementById("displayResult");
       h1.style.color = "green";
